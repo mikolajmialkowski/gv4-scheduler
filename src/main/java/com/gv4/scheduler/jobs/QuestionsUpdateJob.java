@@ -30,7 +30,7 @@ public class QuestionsUpdateJob {
     }
 
     @SneakyThrows
-    @Scheduled(cron = "${jobScheduling.questionsUpdate.cron}")
+    @Scheduled(cron = "* * * * * ?")
     public void updateQuestions(){
         LOGGER.info("QuestionsUpdateJob executed at: {}", LocalDateTime.now());
         jobLauncher.run(questionsUpdate, getJobParameters());

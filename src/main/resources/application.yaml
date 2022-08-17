@@ -1,6 +1,9 @@
 spring:
   application:
     name: gv4-scheduler
+  batch:
+    job:
+      enabled: false
 
 #  datasource:
 #    url:

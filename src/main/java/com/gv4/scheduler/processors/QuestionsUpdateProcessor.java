@@ -20,6 +20,9 @@ public class QuestionsUpdateProcessor implements ItemProcessor<SourceSubject, St
 
         LOGGER.warn("Processor started!");
 
+        if (Math.random()>0.5)
+            throw new RuntimeException("test exception");
+
         return sourceSubject.getTitle();
     }
 }

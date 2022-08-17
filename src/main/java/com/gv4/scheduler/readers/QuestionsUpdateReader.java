@@ -23,11 +23,11 @@ public class QuestionsUpdateReader implements ItemReader<SourceSubject> {
 
         LOGGER.warn("Reader started!");
 
-        return SourceSubject.builder()
+        return (Math.random()>0.5?SourceSubject.builder()
                 .title("APBD")
                 .id(String.valueOf(Math.random()*100))
                 .data(new ArrayList<>())
                 .comments(null)
-                .build();
+                .build() : null);
     }
 }
