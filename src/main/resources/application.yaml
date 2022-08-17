@@ -22,3 +22,9 @@ spring:
 
     defaultsRecipients:
       - mikolaj.mialkowski@outlook.com
+
+source:
+  github:
+    gv3:
+      raw: https://raw.githubusercontent.com/bibixx/zdaj-se-pjatk-data/master
+      apbd: /apbd.json
