@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class EmailService {
     public void sendCustomMessage(String subject, String message, List<String> recipients){
 
         LOGGER.warn("Sending custom message");
-        this.simpleMailMessage.setFrom("project.entropy.dev@gmail.com");
+        this.simpleMailMessage.setFrom(emailProperties.getUsername());
         this.simpleMailMessage.setTo(recipients.toArray(new String[0]));
         this.simpleMailMessage.setSubject(subject);
         this.simpleMailMessage.setText(message);
@@ -38,16 +37,16 @@ public class EmailService {
         LOGGER.warn("Sending error message to DEV(s)");
         this.simpleMailMessage.setFrom(emailProperties.getUsername());
         this.simpleMailMessage.setTo(this.emailProperties.getDefaultsRecipients());
-        this.simpleMailMessage.setSubject("Unexpected error occurred - Entropy.Scheduler");
+        this.simpleMailMessage.setSubject("GV4 - Batch Processing - unexpected error occurred");
 
         StringBuilder errorMessage = new StringBuilder();
         errorMessage.append("Timestamp: ")
                 .append(LocalDateTime.now())
-                .append("\n\n")
+                .append(System.lineSeparator())
                 .append("Program encountered the following unhandled exception: ")
-                .append("\n\n")
+                .append(System.lineSeparator())
                 .append(error)
-                .append("\n\n")
+                .append(System.lineSeparator())
                 .append("For more information check out execution logs");
 
         this.simpleMailMessage.setText(errorMessage.toString());

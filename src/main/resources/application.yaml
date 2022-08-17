@@ -11,7 +11,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: gv4.scheduler
+    username: gv4.scheduler@gmail.com
     password: pvekflwfzetnpmzm
     properties:
       mail:
